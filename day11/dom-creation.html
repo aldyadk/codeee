@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Nama</th>
+        <th>Gender</th>
+      </tr>
+    </thead>
+    <tbody id="target">
+
+    </tbody>
+    <button onclick="reset()">reset</button>
+  </table>
+
+  <script>
+    fetch('https://swapi.dev/api/people')
+    .then((res)=>{
+      return res.json()
+    })
+    .then((response)=>{
+      response.results.forEach((people,i) => {
+        const row = document.createElement('tr');
+        const td1 = document.createElement('td')
+        td1.append(i+1)
+        const td2 = document.createElement('td')
+        td2.classList.add('qwerty')
+        td2.style.color = 'red'
+        td2.append(people.name)
+        const td3 = document.createElement('td')
+        td3.append(people.gender)
+        // const text = document.createTextNode('qwerty')
+        // const textinput = document.createElement('input')
+        // textinput.value = 'blablabla'
+        // textinput.type = 'password'
+        const btn = document.createElement('button')
+        btn.append('hapus')
+        btn.onclick = () => {
+          document.querySelector(`#target #row-${i}`).remove();
+        }
+        row.append(td1, td2, td3, btn)
+        row.id = 'row-' + i
+        console.log(td2)
+        document.querySelector('#target').append(row)
+      });
+    })
+    .catch((err)=>{
+      console.log('error')
+    })
+  </script>
+</body>
+</html>

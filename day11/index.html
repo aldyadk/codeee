@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .hide {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="tes-heading" class="blablabla">tes</h1>
+  <ul>
+    <li class="tes">A</li>
+    <li class="tes">B</li>
+    <li class="tes">C</li>
+    <li class="tes">D</li>
+    <li class="tes">E</li>
+  </ul>
+  <ul class="something">
+    <li class="tes">A</li>
+    <li class="tes">B</li>
+    <li class="tes">C</li>
+    <li class="tes">D</li>
+    <li class="tes">E</li>
+  </ul>
+  <div id="target"></div>
+  <input type="text" id="temp">
+  <script>
+    const listItem = document.querySelectorAll('.tes');
+    listItem.forEach((el) => {
+      el.innerHTML = '<b>' + el.innerHTML + '</b>'
+    })
+
+    const list = document.querySelector('ul')
+    console.log(list.children)
+    const singleList = document.querySelector('.tes')
+    console.log(singleList.parentElement)
+
+    document.querySelector('.tes').parentElement.previousElementSibling.nextElementSibling.nextElementSibling.children[0].children[0].children
+  </script>
+</body>
+
+</html>
